@@ -1,4 +1,4 @@
-/* reset das configurações padrãp */
+/* reset das configurações padrão */
 *{
     margin: 0;
     padding: 0;
@@ -6,17 +6,18 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-/* padronizção de cores */
+/* padronização de cores */
 html{
     /* variáveis do css */
-    --corPrimaria: #017143;
+    --corPrimaria:#017143;
 
-    --corSecundaria: #333;
+    --corSecundaria:#333;
 
-    --corTerciaria: #fff;
+    --corTerciaria:#fff;
 }
 
-/* Container principal */
+/* container principal */
+
 main{
     position: relative;
     width: 100%;
@@ -25,17 +26,16 @@ main{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color:#fff;
     background-color: var(--corTerciaria);
 }
 
-/* header (cabeçalho) */
+/* Header (cabeçalho) */
 header{
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 20px 100px;
+    padding: 20x 100px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -70,49 +70,42 @@ header ul li a{
     padding: 5px;
 }
 
-/* hover dos links do cabeçalho */
 header ul li a:hover{
     background-color: var(--corPrimaria);
     color: var(--corTerciaria);
-    border-radius: 7px;
-
+    border-radius: 7px; 
 }
 
 /* conteúdo principal */
 .conteudo{
     position: relative;
-    width: 100%%;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-
 .conteudo .textoPrincipal{
     position: relative;
-    /* limita o espaço do texto */
+    /* limitita o espaço do texto */
     max-width: 600px;
 }
-
 .conteudo .textoPrincipal h2{
     color: var(--corSecundaria);
-    /* 1em = 1 vez o tamanho da fon te do elemento */
+    /* 1em= 1 vez o tamanho da fonte do elemento */
     /* 16px*2.5= 40px */
     font-size: 2.5em;
     /* espaçamento vertical da fonte */
     line-height: 1.5em;
     font-weight: 500;
 }
-
 .conteudo .textoPrincipal h2 span{
     color: var(--corPrimaria);
     font-size: 1.2em;
     font-weight: 900;
 }
-
 .conteudo .textoPrincipal p{
     color: var(--corSecundaria);
 }
-
 .conteudo .textoPrincipal a{
     display: inline-block;
     margin-top: 20px;
@@ -124,7 +117,6 @@ header ul li a:hover{
     font-weight: 500;
     letter-spacing: 1px;
 }
-
 .conteudo .textoPrincipal a:hover{
     background-color: var(--corSecundaria);
     color: var(--corTerciaria);
@@ -133,7 +125,7 @@ header ul li a:hover{
     text-decoration: none;
 }
 
-/* imagem do copo grande */
+/* imagem do copo grande 🥤*/
 .conteudo .imgBox{
     width: 600px;
     display: flex;
@@ -145,7 +137,7 @@ header ul li a:hover{
     max-width: 340px;
 }
 
-/* copos menores */
+/* copos menores 🥤 */
 .sorvetes{
     position: absolute;
     left: 50%;
@@ -153,19 +145,17 @@ header ul li a:hover{
     transform: translateX(-50%);
     display: flex;
 }
-
 .sorvetes li{
     list-style: none;
     display: inline-block;
     margin: 0 20px;
     cursor: pointer;
     transition: 0.5s;
-}
 
-.sorvetes li:hover {
+}
+.sorvetes li:hover{
     transform: translateY(-15px);
 }
-
 .sorvetes li img{
     max-width: 60px;
 }
@@ -178,35 +168,29 @@ header ul li a:hover{
     transform: translateY(-50%);
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content:center ;
     align-items: center;
 }
-
 .sociais li{
     list-style: none;
 }
-
 #threads{
     height: 40px;
 }
-
 .sociais li a{
     display: inline-block;
     margin: 5px 0;
-
     /* altera a escala de tamanho */
     transform: scale(0.6);
-
     /* inverte a cor para branco */
     filter: invert(1);
 }
-
-.sociaisli a:hover{
+.sociais li a:hover{
     color: var(--corSecundaria);
-    filter: invert(0)
+    filter: invert(0);
 }
 
-/* circulo */
+/* cículo */
 .circulo{
     position: absolute;
     top: 0;
@@ -215,5 +199,63 @@ header ul li a:hover{
     height: 100%;
     background: var(--corPrimaria);
 
-    clip-path: circle(660px at right 800px);
+    /* tamanho --> posição */
+    clip-path: circle(600px at right 800px);
+}
+
+/* responsividade */
+@media (max-width: 992px){
+    header{
+        padding: 20px;
+    }
+    header .logo{
+        max-width: 60px;
+    }
+    header ul{
+    /* oculta a exibiçao da lista */
+        display: none;
+    }
+
+    /* menu hamburgeur */
+    .toggle{
+        position: relative;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        /* preenchido com a imagem do menu hamburguer */
+        background: url(assets/menu.png);
+        background-size: 30px;
+        background-position: center;
+        background-repeat: no-repeat;
+        filter: invert(1);
+        z-index: 11;
+    }
+    .toggle.active{
+        position:fixed;
+        right: 20px;
+        /* preenchido com imagem de 'fechar' */
+        background: url(assets/close.png);
+        background-size: 25px;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    /* formar a lista do menu hamburguer */
+    header ul.links.active{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 40%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #f2f2f2;
+        z-index: 10;
+    }
+    
+    header ul li a{
+        font-size: 1.5em;
+        margin: 5px 0;
+    }
 }

@@ -1,4 +1,4 @@
-# Projeto Didático Clone Starbucks 
+# Projeto Didático Clone Starbucks ☕
 
 Página clone do Starbucks, utilizando responsividade e programação com:
 * HTML para a estrutura do site;
